@@ -1,41 +1,43 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { HomeContainer } from './styles'
+import { HomeContainer, MainCard } from './styles'
 
 
 export function Home() {
   return (
     <HomeContainer>
-      <div>
-        <img src="" alt="" />
-      </div>
-
-      <div>
+      <MainCard>
         <div>
-          <h1>Augusto Moscardo</h1>
-          <a href="#">
-            Github
-            <FontAwesomeIcon icon="arrow-up-right-from-square" />
-          </a>
+          <img src="https://picsum.photos/200/300" alt="" />
         </div>
 
-        <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
-
         <div>
-          <span>
-            <FontAwesomeIcon icon="github" />
-            augustomoscardo
-          </span>
+          <div>
+            <h1>Augusto Moscardo</h1>
+            <a href="#">
+              Github
+              <FontAwesomeIcon icon="arrow-up-right-from-square" />
+            </a>
+          </div>
 
-          <span>
-            <FontAwesomeIcon icon="building" />
-            Rocketseaet
-          </span>
-
-          <span>
-            <FontAwesomeIcon icon="user-group" />
-            32 seguidores
-          </span>
+          <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
         </div>
+      </MainCard>
+
+      <div>
+        <span>
+          <FontAwesomeIcon icon="github" />
+          augustomoscardo
+        </span>
+
+        <span>
+          <FontAwesomeIcon icon="building" />
+          Rocketseaet
+        </span>
+
+        <span>
+          <FontAwesomeIcon icon="user-group" />
+          32 seguidores
+        </span>
       </div>
 
       <div>
@@ -48,6 +50,6 @@ export function Home() {
           <input type="text" placeholder='Buscar conteúdo' />
         </form>
       </div>
-    </HomeContainer>
+    </HomeContainer >
   )
 }

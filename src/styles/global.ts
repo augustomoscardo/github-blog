@@ -18,8 +18,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme["base-text"]};
     -wekkit-font-smooth: antialiased;
 
-    max-width: 1440px;
+    
     width: 100%;
+    /* margin: 0 auto; */
   }
 
   body, input, textarea, button {
