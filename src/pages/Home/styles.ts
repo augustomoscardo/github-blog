@@ -26,6 +26,8 @@ export const ProfileCard = styled.div`
 `
 
 export const ProfileInfoWrapper = styled.div`
+  flex: 1;
+
   p {
     font-weight: 400;
     margin-top: 0.5rem;
@@ -103,6 +105,13 @@ export const SearchFormContainer = styled.div`
 
       color: ${props => props.theme['base-text']};
 
+      &:focus {
+        border-color: ${props => props.theme.blue};;
+      }
+
+      &::placeholder {
+        color: ${props => props.theme['base-label']};;
+      }
     }
   }
 `

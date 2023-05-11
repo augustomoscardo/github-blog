@@ -1,43 +1,91 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { HomeContainer, ProfileCard, ProfileInfoHeader, ProfileInfoWrapper, ProfileLinks, SearchFormContainer } from './styles'
+import { api } from '../../lib/axios'
+import { useEffect, useState } from 'react';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
+interface User {
+  avatar_url: string
+  bio: string
+  company: string
+  followers: number
+  login: string
+  name: string
+}
+
+const userName = ''
+const repoName = ''
 
 export function Home() {
+  const [user, setUser] = useState<User>({
+    name: '',
+    avatar_url: '',
+    bio: '',
+    company: '',
+    followers: 0,
+    login: ''
+  })
+  const [posts, setPosts] = useState([])
 
+  async function getUserInfo() {
+    const response = await api.get('/users/augustomoscardo')
 
+    const userResponse = response.data
+    console.log(userResponse);
 
+    setUser(userResponse)
+  }
+
+  useEffect(() => {
+    getUserInfo()
+  }, [])
+
+  async function getPosts(query = "") {
+    try {
+      const response = await api.get(`/search/issues?q=${query}%20repo:${userName}/${reponame}`)
+
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+
+    }
+
+  }
+
+  getPosts()
   return (
     <HomeContainer>
       <ProfileCard>
         <div>
-          <img src="https://picsum.photos/200/300" alt="" />
+          <img src={user.avatar_url} alt="" />
         </div>
 
         <ProfileInfoWrapper>
           <ProfileInfoHeader>
-            <h1>Augusto Moscardo</h1>
+            <h1>{user.name}</h1>
             <a href="https://github.com/augustomoscardo">
               Github
-              <FontAwesomeIcon icon="arrow-up-right-from-square" />
+              {/* <FontAwesomeIcon icon="arrow-up-right-from-square" /> */}
             </a>
           </ProfileInfoHeader>
 
-          <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+          <p>{user.bio}</p>
 
           <ProfileLinks>
             <span>
-              <FontAwesomeIcon icon="github" />
-              augustomoscardo
+              <FontAwesomeIcon icon={faGithub} />{" "}
+              {user.login}
             </span>
 
             <span>
-              <FontAwesomeIcon icon="building" />
-              Rocketseaet
+              <FontAwesomeIcon icon={faBuilding} />{" "}
+              {user.company}
             </span>
 
             <span>
-              <FontAwesomeIcon icon="user-group" />
-              32 seguidores
+              <FontAwesomeIcon icon={faUserGroup} />{" "}
+              {user.followers} seguidores
             </span>
           </ProfileLinks>
         </ProfileInfoWrapper>
