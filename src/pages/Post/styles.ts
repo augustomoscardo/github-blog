@@ -1,6 +1,6 @@
-import { styled } from 'styled-components'
+import { styled } from "styled-components";
 
-export const HomeContainer = styled.main`
+export const PostContainer = styled.main`
   max-width: 865px;
   width: 100%;
 
@@ -8,6 +8,3 @@ export const HomeContainer = styled.main`
   display: flex;
   flex-direction: column;
 `
-
-
-
