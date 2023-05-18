@@ -5,18 +5,18 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { PostProps } from "../../../contexts/PostsContext";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 interface PostCardProps {
   post: PostProps
 }
 
 export function PostCard({ post }: PostCardProps) {
-  console.log(post);
 
-  // const formattedIntervalDate = formatDistanceToNow(new Date(post.created_at), {
-  //   locale: ptBR,
-  //   addSuffix: true
-  // })
+  const formattedIntervalDate = formatDistanceToNow(new Date(post.created_at), {
+    locale: ptBR,
+    addSuffix: true
+  })
 
   return (
     <PostCardContainer>
@@ -41,17 +41,19 @@ export function PostCard({ post }: PostCardProps) {
         </span>
         <span>
           <FontAwesomeIcon icon={faCalendarDay} />
-          {/* {formattedIntervalDate} */}
-          {post.created_at}
+          {formattedIntervalDate}
+          {/* {post.created_at} */}
         </span>
         <span>
           <FontAwesomeIcon icon={faComment} />
-          {post.comments > 1 ? `${post.comments} comentários` : `${post.comments} comen`} comentários
+          {`${post.comments} comentário(s)`}
         </span>
       </PostInfo>
 
       <PostContent>
-
+        <ReactMarkdown>
+          {post.body}
+        </ReactMarkdown>
       </PostContent>
     </PostCardContainer>
   )

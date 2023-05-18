@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const PostCardContainer = styled.div`
   width: 100%;
+  position: relative;
   background: ${props => props.theme['base-profile']};
   /* display: flex; */
   /* gap: 2rem; */

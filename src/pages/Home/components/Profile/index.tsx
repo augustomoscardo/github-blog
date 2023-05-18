@@ -18,7 +18,7 @@ export function Profile({ user }: ProfileProps) {
       <ProfileInfoWrapper>
         <ProfileInfoHeader>
           <h1>{user.name}</h1>
-          <a href="https://github.com/augustomoscardo">
+          <a href="https://github.com/augustomoscardo" target="_blank">
             Github {" "}
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
