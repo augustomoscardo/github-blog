@@ -19,42 +19,45 @@ export function PostCard({ post }: PostCardProps) {
   })
 
   return (
-    <PostCardContainer>
-      <LinksWrapper>
-        <a href="/">
-          &lt; Voltar
-        </a>
-        <a href={`https://api.github.com/repos/augustomoscardo/github-blog/issues/${post.number}`}>
-          Ver no github{" "}
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </a>
-      </LinksWrapper>
+    <>
+      <PostCardContainer>
+        <LinksWrapper>
+          <a href="/">
+            &lt; Voltar
+          </a>
+          <a href={`https://github.com/augustomoscardo/github-blog/issues/${post.number}`} target="_blank">
+            Ver no github{" "}
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </a>
+        </LinksWrapper>
 
-      <PostTitle>
-        {post.title}
-      </PostTitle>
+        <PostTitle>
+          {post.title}
+        </PostTitle>
 
-      <PostInfo>
-        <span>
-          <FontAwesomeIcon icon={faGithub} />
-          {post.user.login}
-        </span>
-        <span>
-          <FontAwesomeIcon icon={faCalendarDay} />
-          {formattedIntervalDate}
-          {/* {post.created_at} */}
-        </span>
-        <span>
-          <FontAwesomeIcon icon={faComment} />
-          {`${post.comments} comentário(s)`}
-        </span>
-      </PostInfo>
+        <PostInfo>
+          <span>
+            <FontAwesomeIcon icon={faGithub} />
+            {post.user.login}
+          </span>
+          <span>
+            <FontAwesomeIcon icon={faCalendarDay} />
+            {formattedIntervalDate}
+            {/* {post.created_at} */}
+          </span>
+          <span>
+            <FontAwesomeIcon icon={faComment} />
+            {`${post.comments} comentário(s)`}
+          </span>
+        </PostInfo>
 
+
+      </PostCardContainer>
       <PostContent>
         <ReactMarkdown>
           {post.body}
         </ReactMarkdown>
       </PostContent>
-    </PostCardContainer>
+    </>
   )
 }

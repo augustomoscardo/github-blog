@@ -40,6 +40,7 @@ export const PostInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 
   width: 24.5rem;
   margin-top: 0.5rem;
@@ -50,9 +51,39 @@ export const PostInfo = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap; 
   }
 `
 
 export const PostContent = styled.div`
   padding: 2.5rem 2rem;
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme["base-span"]};
+
+    &:hover {
+    color: ${props => props.theme.blue};
+    text-decoration: underline;
+    }
+  }
+
+  h1, h2, h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+
+  }
+
+  h1 {
+    color: ${props => props.theme["base-title"]};
+  }
+
+  h2 {
+    color: ${props => props.theme["base-subtitle"]};
+  }
+
+  h3 {
+    color: ${props => props.theme["base-span"]};
+  }
+
 `

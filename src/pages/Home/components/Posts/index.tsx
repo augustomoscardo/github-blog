@@ -4,9 +4,13 @@ import { PostsContext } from "../../../../contexts/PostsContext";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { truncateString } from "../../../../utils/truncateString";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { PostCardContent } from "./styles";
 
 export function Posts() {
   const { posts } = useContext(PostsContext)
+
+
 
   return (
     <PostsContainer>
@@ -20,9 +24,15 @@ export function Posts() {
             })}</span>
           </div>
 
-          <p>
+          {/* <p>
             {truncateString(post.body, 200)}
-          </p>
+          </p> */}
+          <ReactMarkdown children={truncateString(post.body, 200)} components={{
+            h1: 'p',
+            h2: 'p',
+            h3: 'p',
+            a: 'p'
+          }} />
         </PostCard>
       ))}
     </PostsContainer>
