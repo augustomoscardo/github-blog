@@ -46,7 +46,6 @@ export const ProfileInfoHeader = styled.div`
 
     &:hover{
       font-weight: bold;
-
       transition: all 0.2s;
     }
   }

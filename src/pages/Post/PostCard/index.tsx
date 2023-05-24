@@ -43,7 +43,6 @@ export function PostCard({ post }: PostCardProps) {
           <span>
             <FontAwesomeIcon icon={faCalendarDay} />
             {formattedIntervalDate}
-            {/* {post.created_at} */}
           </span>
           <span>
             <FontAwesomeIcon icon={faComment} />
